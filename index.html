@@ -3,152 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zainab Aamir | Portfolio</title>
+<title>Zainab Aamir | University Journey</title>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
 
-body {
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color:#f4f7f8;
-color:#333;
-line-height:1.6;
+body{
+font-family:'Segoe UI',sans-serif;
+margin:0;
+background:linear-gradient(to right,#eef2f3,#d9e4f5);
 }
 
-header {
-background:#4a90e2;
+header{
+background:linear-gradient(135deg,#4a90e2,#357abd);
 color:white;
-padding:60px 20px;
 text-align:center;
+padding:60px 20px;
 }
 
-header h1 { font-size:3em; margin-bottom:10px; }
-header p { font-size:1.3em; opacity:0.9; }
+header h1{
+font-size:3em;
+margin-bottom:10px;
+}
 
-section {
+section{
 max-width:900px;
-margin:50px auto;
+margin:40px auto;
 padding:0 20px;
 }
 
-h2 {
-color:#4a90e2;
-border-bottom:3px solid #4a90e2;
-display:inline-block;
-padding-bottom:5px;
+h2{
+color:#357abd;
 margin-bottom:20px;
+border-left:6px solid #4a90e2;
+padding-left:10px;
 }
 
-p { margin-bottom:15px; }
-
-.skill { margin:15px 0; }
-
-.skill-name { font-weight:bold; margin-bottom:5px; }
-
-.skill-bar {
-background:#ddd;
-border-radius:25px;
-overflow:hidden;
-}
-
-.skill-level {
-height:20px;
-text-align:right;
-padding-right:10px;
-line-height:20px;
-color:white;
-border-radius:25px;
-}
-
-.csharp { width:85%; background:#239120; }
-.python { width:90%; background:#306998; }
-.wordpress { width:80%; background:#21759b; }
-
-.story {
+.story{
 background:white;
 padding:20px;
-margin-bottom:30px;
-border-radius:8px;
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
+margin-bottom:20px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
-input, textarea {
-width:100%;
-padding:10px;
+.story:hover{
+transform:translateY(-5px);
+}
+
+.story h3{
+color:#4a90e2;
 margin-bottom:10px;
-border:1px solid #ccc;
-border-radius:5px;
 }
 
-button {
+input,textarea{
+width:100%;
+padding:12px;
+margin-bottom:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+button{
 padding:10px 20px;
 background:#4a90e2;
 color:white;
 border:none;
-border-radius:5px;
+border-radius:8px;
 cursor:pointer;
+transition:0.3s;
 }
 
-button:hover { background:#357abd; }
+button:hover{
+background:#357abd;
+}
 
-footer {
-background:#4a90e2;
+.delete-btn{
+background:red;
+margin-top:10px;
+}
+
+footer{
+background:#357abd;
 color:white;
 text-align:center;
 padding:20px;
-margin-top:50px;
+margin-top:40px;
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>Zainab Aamir</h1>
-<p>BSc in Computer Engineering | University of Engineering & Technology</p>
+<h1>My University Journey</h1>
+<p>Documenting My First Experiences at University</p>
 </header>
 
 <section>
-<h2>About Me</h2>
-<p>Hello! I am Zainab Aamir, a passionate Computer Engineering student. I enjoy programming, web development, and learning new technologies.</p>
-</section>
 
-<section>
-<h2>My Skills</h2>
-
-<div class="skill">
-<div class="skill-name">C# Programming</div>
-<div class="skill-bar"><div class="skill-level csharp">85%</div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Python Programming</div>
-<div class="skill-bar"><div class="skill-level python">90%</div></div>
-</div>
-
-<div class="skill">
-<div class="skill-name">Web Development (WordPress)</div>
-<div class="skill-bar"><div class="skill-level wordpress">80%</div></div>
-</div>
-
-</section>
-
-<section>
-<h2>My University Journey</h2>
+<h2>First Day</h2>
 
 <div class="story">
-<h3>First Day</h3>
-<p>My first day at university was a memorable experience...</p>
+<p>
+My first day at university was a memorable experience. I went with my parents.
+Some seniors guided me to my classroom. Later, our teacher announced roll numbers
+and asked us to visit the CS department to collect and submit forms.
+The print shop was crowded, but we managed to complete the process.
+Our Head of Department then explained the semester system to us.
+</p>
 </div>
+
+<h2>Second Day</h2>
 
 <div class="story">
-<h3>Second Day</h3>
-<p>On the second day we attended orientation...</p>
+<p>
+On the second day, we attended an orientation program arranged by seniors.
+The environment was welcoming and beautifully decorated.
+Teachers motivated us to work hard and enjoy university life.
+Seniors organized games and took pictures, making it a memorable event.
+We also created a WhatsApp group for class communication.
+</p>
 </div>
 
-
-<section>
-<h2>Add New Post</h2>
+<h2>Add New Journey Post</h2>
 
 <form onsubmit="addPost(event)">
 <input type="text" id="title" placeholder="Post Title" required>
@@ -157,28 +136,67 @@ margin-top:50px;
 </form>
 
 <div id="posts"></div>
+
 </section>
 
 <footer>
-© 2026 Zainab Aamir | All Rights Reserved
+© 2026 Zainab Aamir
 </footer>
 
 <script>
+
+window.onload=function(){
+let saved=JSON.parse(localStorage.getItem("posts"))||[];
+saved.forEach(post=>{
+createPost(post.title,post.content);
+});
+};
+
 function addPost(event){
 event.preventDefault();
 
 let title=document.getElementById("title").value;
 let content=document.getElementById("content").value;
 
-let post=document.createElement("div");
-post.className="story";
-post.innerHTML="<h3>"+title+"</h3><p>"+content+"</p>";
+createPost(title,content);
 
-document.getElementById("posts").appendChild(post);
+let saved=JSON.parse(localStorage.getItem("posts"))||[];
+saved.push({title:title,content:content});
+localStorage.setItem("posts",JSON.stringify(saved));
 
 document.getElementById("title").value="";
 document.getElementById("content").value="";
 }
+
+function createPost(title,content){
+
+let post=document.createElement("div");
+post.className="story";
+
+post.innerHTML=
+"<h3>"+title+"</h3>"+
+"<p>"+content+"</p>"+
+"<button class='delete-btn' onclick='deletePost(this)'>Delete</button>";
+
+document.getElementById("posts").appendChild(post);
+}
+
+function deletePost(btn){
+
+btn.parentElement.remove();
+
+let all=document.querySelectorAll("#posts .story");
+let updated=[];
+
+all.forEach(p=>{
+let title=p.querySelector("h3").innerText;
+let content=p.querySelector("p").innerText;
+updated.push({title:title,content:content});
+});
+
+localStorage.setItem("posts",JSON.stringify(updated));
+}
+
 </script>
 
 </body>
