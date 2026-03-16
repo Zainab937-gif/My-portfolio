@@ -13,7 +13,6 @@ background:#f5f3ff;
 scroll-behavior:smooth;
 }
 
-/* Navbar */
 nav{
 background:#6c5ce7;
 padding:15px;
@@ -29,11 +28,6 @@ text-decoration:none;
 font-weight:bold;
 }
 
-nav a:hover{
-text-decoration:underline;
-}
-
-/* Header */
 header{
 background:linear-gradient(135deg,#8e44ad,#6c5ce7);
 color:white;
@@ -41,7 +35,6 @@ text-align:center;
 padding:70px 20px;
 }
 
-/* Sections */
 section{
 max-width:1000px;
 margin:50px auto;
@@ -55,22 +48,23 @@ padding-left:10px;
 margin-bottom:20px;
 }
 
-/* Cards */
 .story{
 background:white;
 padding:20px;
 margin-bottom:20px;
 border-radius:12px;
 box-shadow:0 6px 15px rgba(0,0,0,0.08);
-transition:0.3s;
 }
 
-.story:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 20px rgba(0,0,0,0.15);
+button{
+padding:10px 20px;
+background:#6c5ce7;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
 }
 
-/* Footer */
 footer{
 background:#6c5ce7;
 color:white;
@@ -84,9 +78,9 @@ margin-top:40px;
 <body>
 
 <nav>
-<a href="#about">About</a>
 <a href="#journey">Journey</a>
 <a href="#life">Life Experience</a>
+<a href="#posts">Posts</a>
 </nav>
 
 <header>
@@ -94,35 +88,24 @@ margin-top:40px;
 <p>BSc Computer Engineering | Portfolio</p>
 </header>
 
-<section id="about">
-<h2>About Me</h2>
-<div class="story">
-<p>
-I am a passionate Computer Engineering student who enjoys programming,
-web development, and learning new technologies. I always try to improve
-my skills through practice and projects.
-</p>
-</div>
-</section>
-
 <section id="journey">
-<h2>My University Journey</h2>
+<h2>University Journey</h2>
 
 <div class="story">
-<h3>First Day at University</h3>
+<h3>First Day</h3>
 <p>
-My first day was very memorable. I went with my parents.
-Seniors helped me find my classroom. Later, we completed the form process
-from the CS department and our Head of Department explained the semester system.
+My first day at university was memorable. I went with my parents.
+Seniors helped me find my classroom. We completed the CS department form process
+and later the Head of Department explained the semester system.
 </p>
 </div>
 
 <div class="story">
-<h3>Second Day – Orientation Program</h3>
+<h3>Second Day – Orientation</h3>
 <p>
-We attended an orientation program arranged by seniors.
-The environment was welcoming. Teachers gave motivational speeches,
-and seniors organized activities. We created a class WhatsApp group for communication.
+We attended the orientation program arranged by seniors.
+Teachers gave motivational speeches and seniors arranged activities.
+We also created a WhatsApp group for class communication.
 </p>
 </div>
 
@@ -134,8 +117,8 @@ and seniors organized activities. We created a class WhatsApp group for communic
 <div class="story">
 <h3>Midterm Achievement</h3>
 <p>
-In Programming Fundamentals, I scored 38 out of 40 marks in my midterm exam.
-I was very happy and motivated by this achievement.
+I scored 38 out of 40 in Programming Fundamentals midterm.
+This made me very happy and motivated.
 </p>
 </div>
 
@@ -144,47 +127,107 @@ I was very happy and motivated by this achievement.
 <p>
 After midterms, we participated in an exhibition.
 We trained a Machine Learning model using a heart attack prediction dataset.
-Professors visited our project, asked questions, and we gave a presentation.
+Professors asked questions and we presented our project confidently.
 </p>
 </div>
 
 <div class="story">
-<h3>Final Exam Challenges</h3>
+<h3>Final Exams & Health Issue</h3>
 <p>
-During final exams, my health became weak, which affected my preparation.
-I experienced fever and physical weakness, but I stayed strong and completed my exams.
+During finals, my health became very weak.
+I had high fever and physical weakness, which affected my preparation.
+Although my GPA is above 3.5, I am not fully satisfied because of illness.
 </p>
 </div>
 
 <div class="story">
 <h3>Family Support</h3>
 <p>
-My father supported me greatly and waited outside during my exams.
-His support encouraged me during difficult times.
+My father supported me a lot.
+He used to wait outside my department during exams for hours.
+His support gave me strength.
 </p>
 </div>
 
 <div class="story">
-<h3>Daily Travel Experience</h3>
+<h3>Travel Experience</h3>
 <p>
-As a day scholar, I travel daily because my university is outside the city.
-Sometimes transportation is difficult, but this experience made me independent and responsible.
+I am a day scholar.
+My university is about 40 minutes outside the city.
+Daily bus travel is manageable, but sometimes finding transport is difficult.
+Even a rickshaw can take up to 60 minutes.
+This experience made me independent.
 </p>
 </div>
 
 <div class="story">
 <h3>Personal Growth</h3>
 <p>
-All these experiences helped me grow academically and personally.
-I learned responsibility, confidence, patience, and time management.
+These experiences helped me grow academically and personally.
+I learned confidence, responsibility, patience, and time management.
 </p>
 </div>
+
+</section>
+
+<section id="posts">
+<h2>Add New Post</h2>
+
+<div class="story">
+<input type="text" id="postTitle" placeholder="Enter Post Title" style="width:100%;padding:10px;margin-bottom:10px;">
+<textarea id="postContent" placeholder="Enter Post Content" style="width:100%;padding:10px;height:100px;"></textarea>
+<br><br>
+<button onclick="addPost()">Add Post</button>
+</div>
+
+<div id="postList"></div>
 
 </section>
 
 <footer>
 © 2026 Zainab Aamir | All Rights Reserved
 </footer>
+
+<script>
+
+window.onload = function(){
+loadPosts();
+};
+
+function addPost(){
+var title=document.getElementById("postTitle").value;
+var content=document.getElementById("postContent").value;
+
+if(title=="" || content==""){
+alert("Please fill both fields!");
+return;
+}
+
+var posts=JSON.parse(localStorage.getItem("posts")) || [];
+posts.push({title:title,content:content});
+localStorage.setItem("posts",JSON.stringify(posts));
+
+document.getElementById("postTitle").value="";
+document.getElementById("postContent").value="";
+
+loadPosts();
+}
+
+function loadPosts(){
+var postList=document.getElementById("postList");
+postList.innerHTML="";
+
+var posts=JSON.parse(localStorage.getItem("posts")) || [];
+
+posts.forEach(function(post){
+var div=document.createElement("div");
+div.className="story";
+div.innerHTML="<h3>"+post.title+"</h3><p>"+post.content+"</p>";
+postList.appendChild(div);
+});
+}
+
+</script>
 
 </body>
 </html>
