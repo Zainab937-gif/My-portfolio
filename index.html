@@ -9,65 +9,70 @@
 body{
 margin:0;
 font-family:'Segoe UI',sans-serif;
-background:linear-gradient(to right,#eef2f3,#d9e4f5);
+background:#f5f3ff;
+scroll-behavior:smooth;
 }
 
+/* Navbar */
+nav{
+background:#6c5ce7;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+text-decoration:underline;
+}
+
+/* Header */
 header{
-background:linear-gradient(135deg,#4a90e2,#357abd);
+background:linear-gradient(135deg,#8e44ad,#6c5ce7);
 color:white;
 text-align:center;
-padding:60px 20px;
+padding:70px 20px;
 }
 
+/* Sections */
 section{
-max-width:900px;
-margin:40px auto;
+max-width:1000px;
+margin:50px auto;
 padding:0 20px;
 }
 
 h2{
-color:#357abd;
-border-left:6px solid #4a90e2;
+color:#6c5ce7;
+border-left:6px solid #8e44ad;
 padding-left:10px;
 margin-bottom:20px;
 }
 
+/* Cards */
 .story{
 background:white;
 padding:20px;
 margin-bottom:20px;
 border-radius:12px;
-box-shadow:0 6px 15px rgba(0,0,0,0.1);
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
-input,textarea{
-width:100%;
-padding:12px;
-margin-bottom:10px;
-border-radius:8px;
-border:1px solid #ccc;
+.story:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
-button{
-padding:10px 20px;
-background:#4a90e2;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-button:hover{
-background:#357abd;
-}
-
-.delete-btn{
-background:red;
-margin-top:10px;
-}
-
+/* Footer */
 footer{
-background:#357abd;
+background:#6c5ce7;
 color:white;
 text-align:center;
 padding:20px;
@@ -78,124 +83,108 @@ margin-top:40px;
 
 <body>
 
+<nav>
+<a href="#about">About</a>
+<a href="#journey">Journey</a>
+<a href="#life">Life Experience</a>
+</nav>
+
 <header>
 <h1>Zainab Aamir</h1>
-<p>BSc Computer Engineering | University Journey</p>
+<p>BSc Computer Engineering | Portfolio</p>
 </header>
 
-<section>
-
+<section id="about">
 <h2>About Me</h2>
 <div class="story">
 <p>
-Hello! I am Zainab Aamir, a passionate Computer Engineering student.
-I enjoy programming, web development, and learning new technologies.
-This website documents my university journey and experiences.
+I am a passionate Computer Engineering student who enjoys programming,
+web development, and learning new technologies. I always try to improve
+my skills through practice and projects.
 </p>
 </div>
+</section>
 
-<h2>My Skills</h2>
-<div class="story">
-<p>✔ C# Programming</p>
-<p>✔ Python Programming</p>
-<p>✔ Web Development</p>
-</div>
-
+<section id="journey">
 <h2>My University Journey</h2>
 
 <div class="story">
-<h3>First Day</h3>
+<h3>First Day at University</h3>
 <p>
-My first day at university was memorable. I went with my parents,
-met seniors, collected forms from the CS department, and learned
-about the semester system from our Head of Department.
+My first day was very memorable. I went with my parents.
+Seniors helped me find my classroom. Later, we completed the form process
+from the CS department and our Head of Department explained the semester system.
 </p>
 </div>
 
 <div class="story">
-<h3>Second Day</h3>
+<h3>Second Day – Orientation Program</h3>
 <p>
-We attended the orientation program arranged by seniors.
-Teachers motivated us, seniors organized games, and we created
-a WhatsApp group for class communication.
+We attended an orientation program arranged by seniors.
+The environment was welcoming. Teachers gave motivational speeches,
+and seniors organized activities. We created a class WhatsApp group for communication.
 </p>
 </div>
 
-<div id="posts"></div>
-
 </section>
 
-<section>
+<section id="life">
+<h2>Life Experience</h2>
 
-<h2>Add New Post</h2>
+<div class="story">
+<h3>Midterm Achievement</h3>
+<p>
+In Programming Fundamentals, I scored 38 out of 40 marks in my midterm exam.
+I was very happy and motivated by this achievement.
+</p>
+</div>
 
-<form onsubmit="addPost(event)">
-<input type="text" id="title" placeholder="Post Title" required>
-<textarea id="content" placeholder="Write your journey here..." required></textarea>
-<button type="submit">Add Post</button>
-</form>
+<div class="story">
+<h3>Exhibition Experience</h3>
+<p>
+After midterms, we participated in an exhibition.
+We trained a Machine Learning model using a heart attack prediction dataset.
+Professors visited our project, asked questions, and we gave a presentation.
+</p>
+</div>
+
+<div class="story">
+<h3>Final Exam Challenges</h3>
+<p>
+During final exams, my health became weak, which affected my preparation.
+I experienced fever and physical weakness, but I stayed strong and completed my exams.
+</p>
+</div>
+
+<div class="story">
+<h3>Family Support</h3>
+<p>
+My father supported me greatly and waited outside during my exams.
+His support encouraged me during difficult times.
+</p>
+</div>
+
+<div class="story">
+<h3>Daily Travel Experience</h3>
+<p>
+As a day scholar, I travel daily because my university is outside the city.
+Sometimes transportation is difficult, but this experience made me independent and responsible.
+</p>
+</div>
+
+<div class="story">
+<h3>Personal Growth</h3>
+<p>
+All these experiences helped me grow academically and personally.
+I learned responsibility, confidence, patience, and time management.
+</p>
+</div>
 
 </section>
 
 <footer>
-© 2026 Zainab Aamir
+© 2026 Zainab Aamir | All Rights Reserved
 </footer>
-
-<script>
-
-window.onload=function(){
-let saved=JSON.parse(localStorage.getItem("posts"))||[];
-saved.forEach(post=>{
-createPost(post.title,post.content);
-});
-};
-
-function addPost(event){
-event.preventDefault();
-
-let title=document.getElementById("title").value;
-let content=document.getElementById("content").value;
-
-createPost(title,content);
-
-let saved=JSON.parse(localStorage.getItem("posts"))||[];
-saved.push({title:title,content:content});
-localStorage.setItem("posts",JSON.stringify(saved));
-
-document.getElementById("title").value="";
-document.getElementById("content").value="";
-}
-
-function createPost(title,content){
-
-let post=document.createElement("div");
-post.className="story";
-
-post.innerHTML=
-"<h3>"+title+"</h3>"+
-"<p>"+content+"</p>"+
-"<button class='delete-btn' onclick='deletePost(this)'>Delete</button>";
-
-document.getElementById("posts").appendChild(post);
-}
-
-function deletePost(btn){
-
-btn.parentElement.remove();
-
-let all=document.querySelectorAll("#posts .story");
-let updated=[];
-
-all.forEach(p=>{
-let title=p.querySelector("h3").innerText;
-let content=p.querySelector("p").innerText;
-updated.push({title:title,content:content});
-});
-
-localStorage.setItem("posts",JSON.stringify(updated));
-}
-
-</script>
 
 </body>
 </html>
