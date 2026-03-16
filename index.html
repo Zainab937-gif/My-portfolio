@@ -6,39 +6,32 @@
 <title>Zainab Aamir | Portfolio</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+* { margin:0; padding:0; box-sizing:border-box; }
 
-body{
-font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+body {
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background-color:#f4f7f8;
 color:#333;
 line-height:1.6;
 }
 
-header{
+header {
 background:#4a90e2;
-color:#fff;
+color:white;
 padding:60px 20px;
 text-align:center;
 }
 
-header h1{
-font-size:3em;
-margin-bottom:10px;
-}
+header h1 { font-size:3em; margin-bottom:10px; }
+header p { font-size:1.3em; opacity:0.9; }
 
-header p{
-font-size:1.3em;
-opacity:0.9;
-}
-
-section{
+section {
 max-width:900px;
 margin:50px auto;
 padding:0 20px;
 }
 
-h2{
+h2 {
 color:#4a90e2;
 border-bottom:3px solid #4a90e2;
 display:inline-block;
@@ -46,22 +39,19 @@ padding-bottom:5px;
 margin-bottom:20px;
 }
 
-p{margin-bottom:15px;}
+p { margin-bottom:15px; }
 
-.skill{margin:15px 0;}
+.skill { margin:15px 0; }
 
-.skill-name{
-margin-bottom:5px;
-font-weight:bold;
-}
+.skill-name { font-weight:bold; margin-bottom:5px; }
 
-.skill-bar{
+.skill-bar {
 background:#ddd;
 border-radius:25px;
 overflow:hidden;
 }
 
-.skill-level{
+.skill-level {
 height:20px;
 text-align:right;
 padding-right:10px;
@@ -70,19 +60,19 @@ color:white;
 border-radius:25px;
 }
 
-.csharp{width:85%;background-color:#239120;}
-.python{width:90%;background-color:#306998;}
-.wordpress{width:80%;background-color:#21759b;}
+.csharp { width:85%; background:#239120; }
+.python { width:90%; background:#306998; }
+.wordpress { width:80%; background:#21759b; }
 
-.story{
-background:#ffffff;
+.story {
+background:white;
 padding:20px;
 margin-bottom:30px;
 border-radius:8px;
 box-shadow:0 4px 8px rgba(0,0,0,0.1);
 }
 
-input,textarea{
+input, textarea {
 width:100%;
 padding:10px;
 margin-bottom:10px;
@@ -90,7 +80,7 @@ border:1px solid #ccc;
 border-radius:5px;
 }
 
-button{
+button {
 padding:10px 20px;
 background:#4a90e2;
 color:white;
@@ -99,18 +89,15 @@ border-radius:5px;
 cursor:pointer;
 }
 
-button:hover{
-background:#357abd;
-}
+button:hover { background:#357abd; }
 
-footer{
+footer {
 background:#4a90e2;
-color:#fff;
+color:white;
 text-align:center;
 padding:20px;
 margin-top:50px;
 }
-
 </style>
 </head>
 
@@ -123,7 +110,7 @@ margin-top:50px;
 
 <section>
 <h2>About Me</h2>
-<p>Hello! I am Zainab Aamir, a passionate Computer Engineering student. I enjoy programming, web development, and learning new technologies. I like to balance my studies with fun activities and try to make every day at university memorable.</p>
+<p>Hello! I am Zainab Aamir, a passionate Computer Engineering student. I enjoy programming, web development, and learning new technologies.</p>
 </section>
 
 <section>
@@ -131,23 +118,17 @@ margin-top:50px;
 
 <div class="skill">
 <div class="skill-name">C# Programming</div>
-<div class="skill-bar">
-<div class="skill-level csharp">85%</div>
-</div>
+<div class="skill-bar"><div class="skill-level csharp">85%</div></div>
 </div>
 
 <div class="skill">
 <div class="skill-name">Python Programming</div>
-<div class="skill-bar">
-<div class="skill-level python">90%</div>
-</div>
+<div class="skill-bar"><div class="skill-level python">90%</div></div>
 </div>
 
 <div class="skill">
 <div class="skill-name">Web Development (WordPress)</div>
-<div class="skill-bar">
-<div class="skill-level wordpress">80%</div>
-</div>
+<div class="skill-bar"><div class="skill-level wordpress">80%</div></div>
 </div>
 
 </section>
@@ -157,40 +138,35 @@ margin-top:50px;
 
 <div class="story">
 <h3>First Day</h3>
-<p>My first day at university was a memorable experience. I went with my parents. Some seniors were standing there, so I asked them about my classroom and then sat in the class.</p>
-
-<p>After some time, our teacher arrived and announced our roll numbers. He asked us to go to the CS department, get a form from the print shop, fill it out, and submit it to the clerk.</p>
-
-<p>The print shop was crowded, but we finally managed to fill the form and submit it.</p>
+<p>My first day at university was a memorable experience...</p>
 </div>
 
 <div class="story">
 <h3>Second Day</h3>
-<p>On the second day we attended an orientation program arranged by seniors in the CS department.</p>
+<p>On the second day we attended orientation...</p>
+</div>
 
-<p>Teachers gave motivational speeches and seniors organized fun games and took pictures.</p>
+<div class="story">
+<h3>Learning Programming and Working in Groups</h3>
+<p>When our classes started regularly, everything became more organized and exciting. Our teacher formed groups, and my group has eight members. We work together to complete tasks.</p>
 
-<p>After the orientation we created a WhatsApp group for our class to share information.</p>
+<p>In Programming Fundamentals, we studied Python in theory and lab. At first it was difficult, but with practice it became easier and we gained confidence.</p>
+
+<p>Later, we were introduced to Machine Learning, which made learning even more interesting.</p>
 </div>
 
 </section>
 
 <section>
-
 <h2>Add New Post</h2>
 
 <form onsubmit="addPost(event)">
-
-<input type="text" id="title" placeholder="Post Title">
-
-<textarea id="content" placeholder="Write your journey here..."></textarea>
-
+<input type="text" id="title" placeholder="Post Title" required>
+<textarea id="content" placeholder="Write your journey here..." required></textarea>
 <button type="submit">Add Post</button>
-
 </form>
 
 <div id="posts"></div>
-
 </section>
 
 <footer>
@@ -198,31 +174,21 @@ margin-top:50px;
 </footer>
 
 <script>
-
 function addPost(event){
-
 event.preventDefault();
 
 let title=document.getElementById("title").value;
 let content=document.getElementById("content").value;
 
-if(title=="" || content==""){
-alert("Please write title and post");
-return;
-}
-
 let post=document.createElement("div");
 post.className="story";
-
 post.innerHTML="<h3>"+title+"</h3><p>"+content+"</p>";
 
 document.getElementById("posts").appendChild(post);
 
 document.getElementById("title").value="";
 document.getElementById("content").value="";
-
 }
-
 </script>
 
 </body>
