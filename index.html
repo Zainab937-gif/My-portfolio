@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zainab Aamir | Portfolio</title>
 
 <style>
 body{
 margin:0;
-font-family:Segoe UI;
-background:#f4f7f8;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(to right,#eef2f3,#d9e4f5);
 }
 
 header{
-background:#4a90e2;
+background:linear-gradient(135deg,#4a90e2,#357abd);
 color:white;
 text-align:center;
-padding:50px;
+padding:60px 20px;
 }
 
 section{
@@ -24,17 +26,52 @@ padding:0 20px;
 }
 
 h2{
-color:#4a90e2;
-border-bottom:3px solid #4a90e2;
-display:inline-block;
+color:#357abd;
+border-left:6px solid #4a90e2;
+padding-left:10px;
+margin-bottom:20px;
 }
 
 .story{
 background:white;
 padding:20px;
-margin-top:20px;
+margin-bottom:20px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin-bottom:10px;
 border-radius:8px;
-box-shadow:0 4px 8px rgba(0,0,0,0.1);
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 20px;
+background:#4a90e2;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#357abd;
+}
+
+.delete-btn{
+background:red;
+margin-top:10px;
+}
+
+footer{
+background:#357abd;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 </style>
 </head>
@@ -43,22 +80,122 @@ box-shadow:0 4px 8px rgba(0,0,0,0.1);
 
 <header>
 <h1>Zainab Aamir</h1>
-<p>BSc Computer Engineering</p>
+<p>BSc Computer Engineering | University Journey</p>
 </header>
 
 <section>
 
 <h2>About Me</h2>
-
 <div class="story">
 <p>
-Hello! I am Zainab Aamir. I am a Computer Engineering student
-and I love programming and web development.
-This website shows my university journey.
+Hello! I am Zainab Aamir, a passionate Computer Engineering student.
+I enjoy programming, web development, and learning new technologies.
+This website documents my university journey and experiences.
 </p>
 </div>
 
+<h2>My Skills</h2>
+<div class="story">
+<p>✔ C# Programming</p>
+<p>✔ Python Programming</p>
+<p>✔ Web Development</p>
+</div>
+
+<h2>My University Journey</h2>
+
+<div class="story">
+<h3>First Day</h3>
+<p>
+My first day at university was memorable. I went with my parents,
+met seniors, collected forms from the CS department, and learned
+about the semester system from our Head of Department.
+</p>
+</div>
+
+<div class="story">
+<h3>Second Day</h3>
+<p>
+We attended the orientation program arranged by seniors.
+Teachers motivated us, seniors organized games, and we created
+a WhatsApp group for class communication.
+</p>
+</div>
+
+<div id="posts"></div>
+
 </section>
+
+<section>
+
+<h2>Add New Post</h2>
+
+<form onsubmit="addPost(event)">
+<input type="text" id="title" placeholder="Post Title" required>
+<textarea id="content" placeholder="Write your journey here..." required></textarea>
+<button type="submit">Add Post</button>
+</form>
+
+</section>
+
+<footer>
+© 2026 Zainab Aamir
+</footer>
+
+<script>
+
+window.onload=function(){
+let saved=JSON.parse(localStorage.getItem("posts"))||[];
+saved.forEach(post=>{
+createPost(post.title,post.content);
+});
+};
+
+function addPost(event){
+event.preventDefault();
+
+let title=document.getElementById("title").value;
+let content=document.getElementById("content").value;
+
+createPost(title,content);
+
+let saved=JSON.parse(localStorage.getItem("posts"))||[];
+saved.push({title:title,content:content});
+localStorage.setItem("posts",JSON.stringify(saved));
+
+document.getElementById("title").value="";
+document.getElementById("content").value="";
+}
+
+function createPost(title,content){
+
+let post=document.createElement("div");
+post.className="story";
+
+post.innerHTML=
+"<h3>"+title+"</h3>"+
+"<p>"+content+"</p>"+
+"<button class='delete-btn' onclick='deletePost(this)'>Delete</button>";
+
+document.getElementById("posts").appendChild(post);
+}
+
+function deletePost(btn){
+
+btn.parentElement.remove();
+
+let all=document.querySelectorAll("#posts .story");
+let updated=[];
+
+all.forEach(p=>{
+let title=p.querySelector("h3").innerText;
+let content=p.querySelector("p").innerText;
+updated.push({title:title,content:content});
+});
+
+localStorage.setItem("posts",JSON.stringify(updated));
+}
+
+</script>
 
 </body>
 </html>
